@@ -1,0 +1,251 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{outline} \usepackage{pmgraph} \usepackage[normalem]{ulem}
+\usepackage{graphicx} \usepackage{verbatim}
+% \usepackage{minted} % need `-shell-escape' argument for local compile
+
+\usepackage[UTF8]{ctex}
+\usepackage[inkscapeformat=png]{svg}
+\usepackage{enumitem}
+
+\usepackage{listings}
+
+\lstset{
+    columns=fullflexible, 
+    keepspaces=true, 
+    showspaces=false, 
+    showtabs=false, 
+    breaklines=true, 
+    showstringspaces=false, 
+    breakatwhitespace=true, 
+    basicstyle=\ttfamily\normalsize, 
+    framesep=3pt, 
+    xleftmargin=6pt, 
+    tabsize=4, 
+    captionpos=b
+    keywordstyle        =   \bfseries,           % 关键字风格
+    % commentstyle        =   \rmfamily\itshape,   % 注释的风格, 斜体
+    % stringstyle         =   \ttfamily,   % 字符串风格
+    flexiblecolumns,                 % 别问为什么, 加上这个
+    numbers             =   left,    % 行号的位置在左边
+    showspaces          =   true,   % 是否显示空格, 显示了有点乱, 所以不现实了
+    showstringspaces    =   true, 
+    frame               =   lrtb,    % 显示边框
+}
+
+\title{
+    \vspace*{1.0in}
+    \includesvg[width=2.75in]{figures/logo.svg} \\
+    \vspace*{1in}
+    \textbf{\Huge 面向人工智能研究的计算机技能分享}
+    \vspace{0.5in}
+}
+
+\author{ \\
+    \textbf{\huge userElaina} \\
+    \vspace*{1in}
+}
+
+\date{\LARGE 2023.12.07}
+\setcounter{page}{-1}
+\newpage
+
+\begin{document}
+\LARGE
+
+\maketitle
+\tableofcontents
+% \setcounter{page}{0}
+\thispagestyle{empty}
+\newpage
+
+\section{\LARGE 背景}
+
+MIT: \href{https://missing.csail.mit.edu/}{The Missing Semester of Your CS Education} (\href{https://missing-semester-cn.github.io/}{计算机教育中缺失的一课}).
+
+大学里的计算机课程通常专注于讲授从操作系统到机器学习这些学院派的课程或主题, 而对于如何精通工具这一主题则往往会留给学生自行探索. 学生在受教育阶段就会和这些工具朝夕相处, 在职业生涯中更是如此. 因此, 能够高效地使用这些工具是非常有必要的, 防止浪费时间和精力在本来可以更简单的任务上. 精通这些工具不仅可以更快地使用工具完成任务, 并且可以帮助解决在之前看来似乎非常复杂的问题.
+
+\begin{enumerate}[leftmargin=2cm, itemindent=1cm]
+    \item Course overview + the shell
+    \item Shell Tools and Scripting
+    \item Editors (Vim)
+    \item Data Wrangling
+    \item Command-line Environment
+    \item Version Control (Git)
+    \item Debugging and Profiling
+    \item Metaprogramming
+    \item Security and Cryptography
+    \item Potpourri
+    \item Q \& A
+\end{enumerate}
+
+2023 年\href{https://www.bilibili.com/video/BV1T84y1w7wB}{春夏学期}: 计算机学院朋辈辅学课程;
+
+2023 年\href{https://www.bilibili.com/video/BV1t34y1g7YU}{秋冬学期}: 竺可桢学院学院学业指导中心辅学计划, 程序设计精品课;
+
+ZJU: \href{https://slides.tonycrane.cc/PracticalSkillsTutorial/}{实用技能拾遗}.
+
+\begin{enumerate}[leftmargin=2cm,  itemindent=1cm]
+    \item 前瞻: 通往 Pro 的第一步
+    \item Shell 基础及 CLI 工具推荐
+    \item Git / GitHub 及开源基础
+    \item Markdown 语法及应用
+    \item LaTeX 排版简要介绍
+    \item 如何排出规范,  美观的文档
+    \item Docker 基础介绍
+\end{enumerate}
+
+"很长时间你们都被困在墙内", "miss 的比 ZJU 还要多一点".
+
+包括: 镜像站, 代理, 虚拟环境, Shell, CLI, 后台运行, 发行版, LaTeX 等.
+
+不包括: 如何访问 GitHub 等网站.
+
+\section{\LARGE Environment}
+
+\subsection{\LARGE mirrors}
+
+Tuna, BFSU, HIT, USTC, ..., JLU!
+
+\begin{figure}[hb]
+    \centering
+    \includegraphics[height=.4\textheight]{figures/mirror.png}
+    \caption{https://mirrors.jlu.edu.cn/}
+\end{figure}
+
+\begin{enumerate}[leftmargin=2cm,  itemindent=1cm]
+    \tt
+    \item pip install --upgrade numpy \\ -i https://mirrors.jlu.edu.cn/pypi/simple/
+    \item ~/.condarc
+    \item /etc/apt/source.list
+    \item /etc/pacman.d/mirrorlist
+    \item pacman-mirrors
+\end{enumerate}
+
+\begin{figure}[hb]
+    \centering
+    \includegraphics[height=.4\textheight]{figures/mirrorz.png}
+    \caption{MirrorZ.org}
+\end{figure}
+
+\subsection{\LARGE proxy}
+
+WebVPN 助手: https://greasyfork.org/scripts/395271
+
+包管理器使用代理: https://github.com/rosebe/FUCK-GFW
+
+Transparent Proxy: V2rayA, iptables, OpenWRT...
+
+将国际网站伪装成中国网站:
+
+https://github.com/userElaina/this-is-the-China-website
+
+https://greasyfork.org/scripts/461427
+
+\begin{figure}[hb]
+    \centering
+    \includegraphics[height=.4\textheight]{figures/google.png}
+    \caption{Google}
+\end{figure}
+
+\begin{figure}[hb]
+    \centering
+    \includegraphics[height=.15\textheight]{figures/search.png}
+    \caption{Google search bar}
+\end{figure}
+
+\begin{figure}[hb]
+    \centering
+    \includegraphics[height=.3\textheight]{figures/ytb.png}
+    \caption{YouTube}
+\end{figure}
+
+\subsection{\LARGE 虚拟环境}
+
+\subsubsection{\LARGE Python}
+
+{\tt py -m venv ENV\_DIR}
+
+Anaconda / Miniconda
+
+{\tt conda create -n ENV\_NAME python=x.x}
+
+\subsubsection{\LARGE Docker}
+
+其它容器.
+
+\subsubsection{\LARGE Virtual Machine}
+
+WSL, Sandbox, Hyper-V, VMware, Qemu, PVE, ESXi...
+
+Control Panel - Programs - Turn Windows features on or off:
+
+\begin{enumerate}[leftmargin=2cm,  itemindent=1cm]
+    \item Hyper-V
+    \item Windows Hypervisor Platform
+    \item Windows Sandbox
+    \item Windows Subsystem for Linux
+\end{enumerate}
+
+\section{\LARGE Linux}
+
+\subsection{\LARGE shell}
+
+\begin{enumerate}[leftmargin=2cm,  itemindent=1cm]
+    \item bash,  zsh,  fish
+    \item man,  --help
+    \item Vim
+    \item cat,  find,  diff,  grep,  awk
+    \item Git,  GitHub
+    \item make,  cmake
+    \tt
+    \item ssh -p 50022 user@nas.mil
+    \item scp -P 50022 -r ./localfolder/ user@192.168.1.2:/mnt/t1/
+\end{enumerate}
+
+\subsection{\LARGE 后台运行}
+
+\begin{enumerate}[leftmargin=2cm,  itemindent=1cm]
+    \item \sout{\&}
+    \item {\tt nohup CMD > LOG 2>\&1 \&}
+    \item screen
+    \item Tmux
+\end{enumerate}
+
+\subsection{\LARGE Distribution}
+
+\begin{enumerate}[leftmargin=2cm,  itemindent=1cm]
+    \item Debian and Ubuntu
+    \item Arch Linux and Manjaro
+    \item RHEL and CentOS
+    \item Kali Linux and Black Arch Linux
+    \item Deepin
+\end{enumerate}
+
+\section{\LARGE 硬件}
+
+\subsection{\LARGE 硬件加速}
+
+\subsection{\LARGE 硬件选购}
+
+\section{\LARGE 杂项}
+
+\subsection{\LARGE Markdown}
+
+\subsection{\LARGE LaTeX}
+
+\begin{enumerate}[leftmargin=2cm,  itemindent=1cm]
+    \item Template
+    \item Overleaf
+    \item IEEE
+\end{enumerate}
+
+\end{document}
