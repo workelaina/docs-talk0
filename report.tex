@@ -31,14 +31,14 @@
     xleftmargin=6pt, 
     tabsize=4, 
     captionpos=b
-    keywordstyle        =   \bfseries,           % 关键字风格
-    % commentstyle        =   \rmfamily\itshape,   % 注释的风格, 斜体
-    % stringstyle         =   \ttfamily,   % 字符串风格
-    flexiblecolumns,                 % 别问为什么, 加上这个
-    numbers             =   left,    % 行号的位置在左边
-    showspaces          =   true,   % 是否显示空格, 显示了有点乱, 所以不现实了
+    keywordstyle        =   \bfseries,          % 关键字风格
+    % commentstyle        =   \rmfamily\itshape,  % 注释的风格, 斜体
+    % stringstyle         =   \ttfamily,  % 字符串风格
+    flexiblecolumns,                % 别问为什么, 加上这个
+    numbers             =   left,   % 行号的位置在左边
+    showspaces          =   true,  % 是否显示空格, 显示了有点乱, 所以不现实了
     showstringspaces    =   true, 
-    frame               =   lrtb,    % 显示边框
+    frame               =   lrtb,   % 显示边框
 }
 
 \title{
@@ -93,13 +93,13 @@ MIT: \href{https://missing.csail.mit.edu/}{The Missing Semester of Your CS Educa
 
 ZJU: \href{https://slides.tonycrane.cc/PracticalSkillsTutorial/}{实用技能拾遗}.
 
-\begin{enumerate}[leftmargin=2cm,  itemindent=1cm]
+\begin{enumerate}[leftmargin=2cm, itemindent=1cm]
     \item 前瞻: 通往 Pro 的第一步
     \item Shell 基础及 CLI 工具推荐
     \item Git / GitHub 及开源基础
     \item Markdown 语法及应用
     \item LaTeX 排版简要介绍
-    \item 如何排出规范,  美观的文档
+    \item 如何排出规范, 美观的文档
     \item Docker 基础介绍
 \end{enumerate}
 
@@ -121,7 +121,7 @@ Tuna, BFSU, HIT, USTC, ..., JLU!
     \caption{https://mirrors.jlu.edu.cn/}
 \end{figure}
 
-\begin{enumerate}[leftmargin=2cm,  itemindent=1cm]
+\begin{enumerate}[leftmargin=2cm, itemindent=1cm]
     \tt
     \item pip install --upgrade numpy \\ -i https://mirrors.jlu.edu.cn/pypi/simple/
     \item ~/.condarc
@@ -142,7 +142,7 @@ WebVPN 助手: https://greasyfork.org/scripts/395271
 
 包管理器使用代理: https://github.com/rosebe/FUCK-GFW
 
-Transparent Proxy: V2rayA, iptables, OpenWRT...
+Transparent Proxy: V2rayA, iptables, OpenWRT, ...
 
 将国际网站伪装成中国网站:
 
@@ -184,11 +184,11 @@ Anaconda / Miniconda
 
 \subsubsection{\LARGE Virtual Machine}
 
-WSL, Sandbox, Hyper-V, VMware, Qemu, PVE, ESXi...
+WSL, Sandbox, Hyper-V, VirtualBox, VMware, Qemu, PVE, ESXi, ...
 
 Control Panel - Programs - Turn Windows features on or off:
 
-\begin{enumerate}[leftmargin=2cm,  itemindent=1cm]
+\begin{enumerate}[leftmargin=1cm, itemindent=1cm]
     \item Hyper-V
     \item Windows Hypervisor Platform
     \item Windows Sandbox
@@ -197,23 +197,76 @@ Control Panel - Programs - Turn Windows features on or off:
 
 \section{\LARGE Linux}
 
-\subsection{\LARGE shell}
+\subsection{\LARGE Shell}
 
-\begin{enumerate}[leftmargin=2cm,  itemindent=1cm]
-    \item bash,  zsh,  fish
-    \item man,  --help
-    \item Vim
-    \item cat,  find,  diff,  grep,  awk
-    \item Git,  GitHub
-    \item make,  cmake
+Shell is not Terminal!
+
+\begin{enumerate}[leftmargin=1cm, itemindent=1cm]
+    \item bash: Bourne Again Shell, default.
+    \item Zsh: Z Shell, https://ohmyz.sh/.
+    \item fish: Friendly Interactive Shell, generates by parsing man pages.
+\end{enumerate}
+
+\subsection{\LARGE Help}
+
+\begin{enumerate}[leftmargin=1cm, itemindent=1cm]
+    \item {\tt ----help}
+    \item man
+    \item tldr
+    \item RTFM, STFW
+\end{enumerate}
+
+\subsection{\LARGE IDE}
+
+编译器: 是将原始语言源代码转换成目标语言计算机程序. gcc, msvc, clang, ...
+
+编辑器: 文本编辑. Vim, NeoVim, VSCode, ...
+
+集成开发环境 (IDE): 能编辑, 构建, 测试, 打包的软件. VS, JetBrains, ...
+
+\subsection{\LARGE CLI}
+
+\begin{enumerate}[leftmargin=1cm, itemindent=1cm]
+    \item {\tt ls -ahl}: all, human readable, long listing format
+    \item diff, 比较文件
+    \item cat, bat, 输出与拼接文件
+    \item xxd, hexyl, 十六进制输出文件
+    \item find, fd, 查找文件
+    \item grep, ripgrep, 搜索文件内容
+    \item top, htop, btop, "任务管理器"
+    \item make, cmake, 自动化
+    \item neofetch, 显示系统信息
+    \item FFmpeg, 多媒体处理
+\end{enumerate}
+
+\subsection{\LARGE SSH (SCP)}
+
+\begin{enumerate}[leftmargin=1cm, itemindent=1cm]
     \tt
-    \item ssh -p 50022 user@nas.mil
-    \item scp -P 50022 -r ./localfolder/ user@192.168.1.2:/mnt/t1/
+    \item ssh-keygen -t ed25519 -C "userelaina@pm.me"
+    \item cat \textasciitilde/.ssh/id\_ed25519.pub
+    \item ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmmagvzHfnb NiN3mKrLYqCirEm75But9tKxKas5VX4n userelaina@pm.me
+    \item vim \textasciitilde/.ssh/id\_ALGORITHM
+    \\ \quad \\
+    \item ssh -i \textasciitilde/.ssh/id\_ed25519 -p 50022 user@nas.mil
+    \item scp -P 50022 -r ./a/ user@192.168.1.2:\textasciitilde/t1/
+\end{enumerate}
+
+\subsection{\LARGE Git (GitHub)}
+
+\begin{enumerate}[leftmargin=1cm, itemindent=1cm]
+    \item {\tt git clone https://github.com/opencv/opencv.git}
+    \item {\tt git clone git@github.com:opencv/opencv.git}
+    \item {\tt git clone --recurse-submodules --remote-submodule https://github.com/bad-apple-lab/Bad-Apple.git}
+    \\ \quad \\
+    \item GitHub - Settings - SSH and GPG keys
+    \item {\tt vim \textasciitilde/.ssh/config}
+    \item {\tt ssh -T git@github.com}
 \end{enumerate}
 
 \subsection{\LARGE 后台运行}
 
-\begin{enumerate}[leftmargin=2cm,  itemindent=1cm]
+\begin{enumerate}[leftmargin=1cm, itemindent=1cm]
     \item \sout{\&}
     \item {\tt nohup CMD > LOG 2>\&1 \&}
     \item screen
@@ -222,7 +275,7 @@ Control Panel - Programs - Turn Windows features on or off:
 
 \subsection{\LARGE Distribution}
 
-\begin{enumerate}[leftmargin=2cm,  itemindent=1cm]
+\begin{enumerate}[leftmargin=1cm, itemindent=1cm]
     \item Debian and Ubuntu
     \item Arch Linux and Manjaro
     \item RHEL and CentOS
@@ -242,10 +295,16 @@ Control Panel - Programs - Turn Windows features on or off:
 
 \subsection{\LARGE LaTeX}
 
-\begin{enumerate}[leftmargin=2cm,  itemindent=1cm]
+\begin{enumerate}[leftmargin=2cm, itemindent=1cm]
     \item Template
     \item Overleaf
     \item IEEE
 \end{enumerate}
+
+\subsection{\LARGE Q \& A}
+
+\begin{center}
+    {\Huge Thanks!}
+\end{center}
 
 \end{document}
