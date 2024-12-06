@@ -1,9 +1,14 @@
-# ppt-talk0
+# docs-talk0
 
-面向人工智能研究的计算机技能分享 讲义
+将于 2024-2025 第二学期开展系列讲座: 计算机教育中缺失的一课
 
-ppt: 
-https://github.com/mscelaina/ppt-talk0
+https://github.com/userElaina/missing-lesson
+
+包括本仓库在内的 *面向人工智能研究的计算机技能分享* 相关仓库将存档.
+
+讲义 (本仓库): https://github.com/mscelaina/docs-talk0
+
+PPT: https://github.com/workelaina/ppt-talk0 
 
 ## ref
 
